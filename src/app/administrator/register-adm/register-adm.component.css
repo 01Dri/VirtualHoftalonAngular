@@ -1,0 +1,79 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999; /* Certifique-se de que o overlay esteja acima de outros elementos */
+}
+
+
+.overlay-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: -350px;
+    width: 20%; /* Ajuste a largura conforme necessário */
+    /* Ajuste a altura conforme necessário ou deixe-a automática para manter a proporção */
+}
+
+
+.container {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for the container */
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1;
+    margin-top: 100px; /* Ajuste conforme necessário para a distância entre a imagem e os campos de entrada */
+}
+
+.campos {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"] {
+    width: 300px; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+    margin-left: 10px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.text-danger {
+    color: red;
+}
