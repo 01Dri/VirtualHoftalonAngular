@@ -1,0 +1,39 @@
+<div class="container">
+
+        <div class="campos">
+            <label for="firstname">Primeiro Nome</label>
+            <input type="text" required id="firstNameInput" name="firstName" [(ngModel)]="administrator.firstName">
+        </div>
+
+        <div class="campos">
+            <label for="lastname">Segundo Nome</label>
+            <input type="text" id="lastNameInput" name="lastName" required [(ngModel)]="administrator.lastName">
+        </div>
+
+        <div class="campos">
+            <label for="lastname">CPF</label>
+            <input type="text" required id="cpfInput" name="cpf" [(ngModel)]="administrator.cpf">
+        </div>
+
+        <div class="campos">
+            <label for="email">Email</label>
+            <input type="email" required id="emailInput" name="email" [(ngModel)]="administrator.email">
+        </div>
+
+        <div class="campos">
+            <label for="dateBirth">Data Nascimento</label>
+            <input type="date" required id="birthDateInput" name="dateBirth" [(ngModel)]="administrator.dateBirth"> 
+        </div>
+    
+        <div class="campos">
+            <label for="password">Senha</label>
+            <input type="password" required id="passwordInput" name="password" [(ngModel)]="administrator.password">
+        </div>
+
+        <div class="campos">
+            <button id="btnSubmit" type="submit" (click)="register()">Cadastrar</button>
+            <a href="/login-adm"> Já tem uma conta? Faça login.</a>
+            <div *ngIf="errorMessage" class="text-danger" style="color: red;">{{ errorMessage }}</div>
+        </div>
+
+</div>
