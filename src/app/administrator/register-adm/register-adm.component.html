@@ -4,37 +4,47 @@
         <div class="campos">
             <label for="firstname">Primeiro Nome</label>
             <input type="text" required id="firstNameInput" name="firstName" [(ngModel)]="administrator.firstName">
+            <div *ngIf="!administrator.firstName && submitted" class="text-danger">Por favor, preencha o primeiro nome.</div>
+
         </div>
 
         <div class="campos">
-            <label for="lastname">Segundo Nome</label>
+            <label for="lastname">Sobrenome Nome</label>
             <input type="text" id="lastNameInput" name="lastName" required [(ngModel)]="administrator.lastName">
+            <div *ngIf="!administrator.lastName && submitted" class="text-danger">Por favor, preencha o sobrenome.</div>
         </div>
 
         <div class="campos">
             <label for="cpf">CPF</label>
-            <input type="text" required id="cpfInput" name="cpf" [(ngModel)]="administrator.cpf">
+            <input type="text" required id="cpfInput" name="cpf" [(ngModel)]="administrator.cpf" maxlength="14">
+            <div *ngIf="!administrator.cpf && submitted" class="text-danger">Por favor, preencha o cpf.</div>
+
         </div>
 
         <div class="campos">
             <label for="email">Email</label>
             <input type="email" required id="emailInput" name="email" [(ngModel)]="administrator.email">
+            <div *ngIf="!administrator.email && submitted" class="text-danger">Por favor, preencha o email.</div>
         </div>
 
         <div class="campos">
-            <label for="dateBirth">Data Nascimento</label>
+            <label for="dateBirth">Data de nascimento</label>
             <input type="date" required id="birthDateInput" name="dateBirth" [(ngModel)]="administrator.dateBirth"> 
+            <div *ngIf="!administrator.dateBirth && submitted" class="text-danger">Por favor, preencha a data de nascimento.</div>
         </div>
 
         <div class="campos">
             <label for="password">Senha</label>
-            <input type="password" required id="passwordInput" name="password" [(ngModel)]="administrator.password">
+            <input type="password" required id="passwordInput" name="password" [(ngModel)]="administrator.password" minlength="8">
+            <div *ngIf="!administrator.password && submitted" class="text-danger">Por favor, preencha a senha.</div>
+
         </div>
 
         <div class="campos">
             <button id="btnSubmit" type="submit" (click)="register()">Cadastrar</button>
-            <a href="/login-adm"> Já tem uma conta? Faça login.</a>
-            <div *ngIf="errorMessage" class="text-danger" style="color: red;">{{ errorMessage }}</div>
-        </div>
+            <p>Já tem uma conta? <a href="/login-adm">Faça login aqui</a>.</p>
+            <div *ngIf="sucessMessage" class="text-sucess"> {{sucessMessage}}</div>
+            <div *ngIf="errorMessage" class="text-danger"> {{errorMessage}}</div>
     </div>
+
 </div>

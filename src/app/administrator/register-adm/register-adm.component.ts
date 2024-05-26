@@ -11,7 +11,9 @@ import { RequestsService } from '../../services/requests.service';
 export class RegisterAdmComponent {
 
   administrator = new AdministratorRequestDTO();
-  errorMessage: string = '';
+  sucessMessage = "";
+  errorMessage = "";
+  submitted: boolean = false;
   constructor(private requestService: RequestsService){}
 
   register() {
@@ -19,11 +21,13 @@ export class RegisterAdmComponent {
     .subscribe(
       (response: AdministratorReponseDTO) => { 
         this.administrator = response;
-        console.log(response)
+        this.submitted = true
+        this.sucessMessage = "O cadastro foi efetuado com sucesso!"
       },
       (error: any) => {
         console.log(error)
-        this.errorMessage = error;
+        this.errorMessage = `Ocorreu uma falha: ${error}`
+        this.submitted = true
       }
     );
   }
