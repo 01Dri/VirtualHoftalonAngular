@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { AdministratorRequestDTO } from '../models/AdministratorRequestDTO';
-import { AdministratorReponseDTO } from '../models/AdministratorResponseDTO';
+import { AdministratorRequestDTO } from '../../models/administrator/AdministratorRequestDTO';
+import { AdministratorReponseDTO } from '../../models/administrator/AdministratorResponseDTO';
 import { RequestsService } from '../../services/requests.service';
 
 @Component({

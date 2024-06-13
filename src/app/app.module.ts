@@ -3,16 +3,20 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RegisterAdmComponent } from './administrator/register-adm/register-adm.component';
+import { RegisterAdmComponent } from './components/register-adm/register-adm.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { LoginAdmComponent } from './administrator/login-adm/login-adm.component';
+import { LoginComponent } from './components/global/login/login.component';
+import { AdminPanelComponent } from './components/admin/admin-panel/admin-panel.component';
+import { CreateDoctorPanelComponent } from './components/admin/create-doctor-panel/create-doctor-panel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterAdmComponent,
-    LoginAdmComponent
+    LoginComponent,
+    AdminPanelComponent,
+    CreateDoctorPanelComponent
   ],
   imports: [
     BrowserModule,

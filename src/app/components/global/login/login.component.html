@@ -1,0 +1,21 @@
+<div class="overlay">
+    <img src="assets/hoftalon-logo.png" alt="Overlay Image" class="overlay-image">
+    <div class="container">
+
+    <div class="campos">
+        <label for="email">Email</label>
+        <input type="email" required id="emailInput" name="email" [(ngModel)]="loginDTO.username">
+        <div *ngIf="!loginDTO.username && submitted" class="text-danger">Por favor, insira o e-mail.</div>
+    </div>
+
+    <div class="campos">
+        <label for="password">Senha</label>
+        <input type="password" required id="passwordInput" name="password" [(ngModel)]="loginDTO.password" minlength="8">
+        <div *ngIf="!loginDTO.password && submitted" class="text-danger">Por favor, insira a senha.</div>
+    </div>
+
+    <div class="campos">
+        <button id="btnSubmit" type="submit" (click)="login()">Login</button>
+        <div *ngIf="errorMessage" class="text-danger"> {{errorMessage}}</div>
+    </div>
+</div>

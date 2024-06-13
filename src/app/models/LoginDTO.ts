@@ -1,10 +1,10 @@
 export class LoginDTO {
  
-    Username?: string;
-    Password?: string;
+    username?: string;
+    password?: string;
 
     constructor(firstName?: string, lastName?: string) {
-        this.Username = firstName;
-        this.Password = lastName;
+        this.username = firstName;
+        this.password = lastName;
     }
 }

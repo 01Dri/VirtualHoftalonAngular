@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { stringify } from 'querystring';
 import { Observable, catchError, map, throwError } from 'rxjs';
+import { StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +15,10 @@ export class RequestsService {
     'Content-Type': 'application/json'
   });
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private storageServices: StorageService) {
     // Check if localStorage is available before accessing it
     if (typeof window !== 'undefined') {
-      this.token = localStorage.getItem("token");
+      this.token = this.storageServices.cookieStorageGet("token");
       if (this.token) {
         this.headers = this.headers.append('Authorization', `Bearer ${this.token}`);
       }
