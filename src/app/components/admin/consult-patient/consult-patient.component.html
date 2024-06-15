@@ -1,0 +1,62 @@
+<app-admin-sidebar></app-admin-sidebar>
+
+
+<div class="overlay">
+    <img src="assets/hoftalon-logo.png" alt="Overlay Image" class="overlay-image">
+    <div class="container">
+        <div class="campos">
+            <label for="consultType">Consultar por:</label>
+            <select required id="consultType" name="consultType" [(ngModel)]="selectedTypeConsult">
+                <option value="" disabled selected>Selecione o tipo</option>
+                <option value="Email">Email</option>
+                <option value="CPF">CPF</option>
+                <option value="Code">Codigo</option>
+            </select>
+        </div>
+
+
+        <div class="campos" *ngIf="selectedTypeConsult === 'Email'">
+            <label for="email">Digite o e-mail do paciente:</label>
+            <input type="email" id="emailInput" name="email" [(ngModel)]="email" required="Por favor digite o e-mail do paciente!">
+            <div *ngIf="!email && submitted" class="text-danger">Por favor, insira o e-mail.</div>
+        </div>
+
+        <div class="campos" *ngIf="selectedTypeConsult === 'CPF'">
+            <label for="cpf">Digite o CPF do paciente:</label>
+            <input type="text" id="cpfInput" name="cpf" [(ngModel)]="cpf" (input)="formatarCPF($event)" required maxlength="14">
+            <div *ngIf="!cpf && submitted" class="text-danger">Por favor, insira o CPF.</div>
+        </div>
+
+
+        <div class="campos" *ngIf="selectedTypeConsult === 'Code'">
+            <label for="code">Digite o código do paciente:</label>
+            <input type="number" id="codeInput" name="code" [(ngModel)]="idPatient" required="Por favor digite o código do paciente!">
+            <div *ngIf="!idPatient && submitted" class="text-danger">Por favor, insira o código.</div>
+        </div>
+
+        <div class="campos" *ngIf="selectedTypeConsult != ''">
+            <button id="btnSubmit" type="submit" (click)="consult()">Consultar</button>
+            <div *ngIf="errorMessage" class="text-danger"> {{errorMessage}}</div>
+        </div>
+
+        <div *ngIf="success == true" class="result">
+            <h2>Dados do Paciente</h2>
+            <p><strong>ID:</strong> {{ patientResponseDTO.id }}</p>
+            <p><strong>Nome:</strong> {{ patientResponseDTO.name }}</p>
+            <p><strong>Telefone:</strong> {{ patientResponseDTO.phone }}</p>
+            <p><strong>CPF:</strong> {{ patientResponseDTO.cpf }}</p>
+            <p><strong>RG:</strong> {{ patientResponseDTO.rg }}</p>
+            <p><strong>Data de Nascimento:</strong> {{ patientResponseDTO.birthDate | date:'dd/MM/yyyy' }}</p>
+            <p><strong>Email:</strong> {{ patientResponseDTO.email }}</p>
+            <div *ngIf="patientResponseDTO.appointments?.length">
+                <h3>Consultas</h3>
+                <ul>
+                    <li *ngFor="let appointment of patientResponseDTO.appointments">
+                        {{ appointment.name }} ({{ appointment.timestamp | date:'dd/MM/yyyy' }})
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+</div>

@@ -1,0 +1,116 @@
+/* Estiliza o container principal */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0); /* Fundo transparente */
+    overflow: auto; /* Permite que a overlay role */
+    padding: 20px; /* Espaçamento interno */
+    box-sizing: border-box;
+}
+
+.overlay-image {
+    position: absolute;
+    top: 50px; /* Distância do topo que você deseja */
+    right: 20px; /* Distância da direita que você deseja */
+    width: 50%; /* Ajuste a largura conforme necessário */
+    max-width: 300px; /* Largura máxima */
+    right: 90px;
+}
+
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+
+
+/* Estiliza os campos do formulário */
+.campos {
+    margin-bottom: 15px;
+}
+
+/* Estiliza os rótulos dos campos */
+.campos label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Estiliza os campos de entrada de texto e select */
+.campos input,
+.campos select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Estiliza o botão de submit */
+#btnSubmit {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Estiliza o botão de submit no estado hover */
+#btnSubmit:hover {
+    background-color: #0056b3;
+}
+
+/* Estiliza as mensagens de erro */
+.text-danger {
+    color: red;
+    font-size: 14px;
+}
+
+/* Estiliza a seção de resultado */
+.result {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #e9ecef;
+}
+
+/* Estiliza os títulos da seção de resultado */
+.result h2,
+.result h3 {
+    margin-top: 0;
+}
+
+/* Estiliza os parágrafos da seção de resultado */
+.result p {
+    margin: 5px 0;
+}
+
+/* Estiliza a lista de consultas */
+.result ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.result ul li {
+    padding: 5px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.result ul li:last-child {
+    border-bottom: none;
+}

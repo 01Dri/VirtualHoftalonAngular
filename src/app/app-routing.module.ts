@@ -4,12 +4,17 @@ import { RegisterAdmComponent } from './components/register-adm/register-adm.com
 import { LoginComponent } from './components/global/login/login.component';
 import { AdminPanelComponent } from './components/admin/admin-panel/admin-panel.component';
 import { CreateDoctorPanelComponent } from './components/admin/create-doctor-panel/create-doctor-panel.component';
+import { CreatePatientPanelComponent } from './components/admin/create-patient-panel/create-patient-panel.component';
+import { ConsultPatientComponent } from './components/admin/consult-patient/consult-patient.component';
 
 const routes: Routes = [
   {path: 'register-adm', component: RegisterAdmComponent},
   {path: 'login', component: LoginComponent},
   {path: 'admin-panel', component: AdminPanelComponent},
-  {path: 'create-doctor-panel', component: CreateDoctorPanelComponent}
+  {path: 'create-doctor-panel', component: CreateDoctorPanelComponent},
+  {path: 'create-patient-panel', component: CreatePatientPanelComponent},
+  {path: 'consult-patient', component: ConsultPatientComponent},
+
 ];
 
 @NgModule({

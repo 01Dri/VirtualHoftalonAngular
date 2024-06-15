@@ -19,16 +19,6 @@ export class LoginComponent {
 
   constructor(private router: Router, private requests: RequestsService, private storageService: StorageService){}
 
-  ngOnInit() {
-    var role: string = this.storageService.cookieStorageGet("role")
-    if (role != null ) {
-      console.log("opa tem")
-      if (role === "ADMIN") {
-        this.router.navigateByUrl("/admin-panel");
-      }
-    }
-  }
-
   login() {
 
     this.requests.post<LoginResponseDTO>("login/login", this.loginDTO)

@@ -9,6 +9,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/global/login/login.component';
 import { AdminPanelComponent } from './components/admin/admin-panel/admin-panel.component';
 import { CreateDoctorPanelComponent } from './components/admin/create-doctor-panel/create-doctor-panel.component';
+import { CreatePatientPanelComponent } from './components/admin/create-patient-panel/create-patient-panel.component';
+import { ConsultPatientComponent } from './components/admin/consult-patient/consult-patient.component';
+import { AdminSidebarComponent } from './shared/components/admin-sidebar/admin-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { CreateDoctorPanelComponent } from './components/admin/create-doctor-pan
     RegisterAdmComponent,
     LoginComponent,
     AdminPanelComponent,
-    CreateDoctorPanelComponent
+    CreateDoctorPanelComponent,
+    CreatePatientPanelComponent,
+    ConsultPatientComponent,
+    AdminSidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +34,9 @@ import { CreateDoctorPanelComponent } from './components/admin/create-doctor-pan
   providers: [
     provideClientHydration()
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [
+    AdminSidebarComponent
+  ]
 })
 export class AppModule { }
