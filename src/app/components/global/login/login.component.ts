@@ -25,12 +25,14 @@ export class LoginComponent {
     .subscribe(
       (response: LoginResponseDTO) => { 
         this.loginResponseDTO = response;
+        console.log(response)
         this.submitted = true;
         console.log(this.loginResponseDTO.id);
         this.storageService.cookieStorageSet("role", this.loginResponseDTO.role!);
         this.storageService.cookieStorageSet("username", this.loginResponseDTO.username!);
-        this.storageService.cookieStorageSet("token", this.loginResponseDTO.token!);
-        this.storageService.cookieStorageSet("id", this.loginResponseDTO.id?.toString()!);
+        this.storageService.cookieStorageSet("accessToken", this.loginResponseDTO.tokenResponseDto?.accessToken!);
+        this.storageService.cookieStorageSet("refreshToken", this.loginResponseDTO.tokenResponseDto?.refreshToken!);
+        this.storageService.cookieStorageSet("loginId", this.loginResponseDTO.id?.toString()!);
 
         if (this.loginResponseDTO.role == "ADMIN") {
           this.router.navigateByUrl("/admin-panel");

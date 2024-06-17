@@ -13,7 +13,7 @@ export class AdminSidebarComponent {
   isCollapsed: boolean = false;
 
   
-  user = new AdministratorReponseDTO();
+  user = ""
   constructor(private storageService: StorageService, private router: Router, private requestServices: RequestsService) {}
   ngOnInit() {
 
@@ -23,16 +23,11 @@ export class AdminSidebarComponent {
         this.router.navigateByUrl("/login");
       }
     }
-    var idAdmin: number = parseInt(this.storageService.cookieStorageGet(`id`));
-    this.requestServices.getData<AdministratorReponseDTO>(`admins/login/${idAdmin}`)
-    .subscribe(
-      (response: AdministratorReponseDTO) => {
-        this.user = response;
-      },
-      (error: any) => {
-        console.log(error);
-      }
-    );
+    if (this.storageService.cookieStorageGet("username") != null) {
+      console.log("tem o cookie")
+      this.user = this.storageService.cookieStorageGet("username");
+      console.log(this.user)
+    }
   }
 
   toggleSidebar() {
