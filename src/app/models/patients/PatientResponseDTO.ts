@@ -10,9 +10,10 @@ export class PatientReponseDTO {
     birthDate?: Date;
     classification?: string;
     appointments?: AppointmentResponseDTO[]
+    doctorName?: string
 
 
-    constructor(id?: number, name?: string, phone?: string, cpf?: string, rg?: string, email?: string, birthDate?: Date, classification?: string, appointments?: AppointmentResponseDTO[]) {
+    constructor(id?: number, name?: string, phone?: string, cpf?: string, rg?: string, email?: string, birthDate?: Date, classification?: string, appointments?: AppointmentResponseDTO[], doctorName?: string) {
         this.id = id;
         this.name = name;
         this.phone = phone;
@@ -22,5 +23,7 @@ export class PatientReponseDTO {
         this.birthDate = birthDate;
         this.classification = classification;
         this.appointments = appointments;
+        this.doctorName = doctorName;
+
     }
 }

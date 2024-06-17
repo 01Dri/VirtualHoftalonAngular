@@ -1,0 +1,4 @@
+/* CSS para garantir que a sidebar fique sempre à esquerda */
+.nav-link {
+    position: relative;
+}

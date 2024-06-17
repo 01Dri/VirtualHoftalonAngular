@@ -1,6 +1,6 @@
 /* Estiliza o container principal */
 .overlay {
-    position: fixed;
+    display: flex;
     top: 0;
     left: 0;
     width: 100%;
@@ -106,11 +106,22 @@
     padding: 0;
 }
 
-.result ul li {
+.result ul li { 
     padding: 5px 0;
     border-bottom: 1px solid #ccc;
 }
 
 .result ul li:last-child {
     border-bottom: none;
+}
+
+
+.container-sidebar-component {
+    position: fixed; /* Fixa o contêiner em relação à janela de visualização */
+    left: 0; /* Alinha o contêiner ao lado esquerdo */
+    top: 0; /* Alinha o contêiner ao topo da janela */
+    width: 10%; /* Define a largura da barra lateral */
+    height: 100vh; /* Faz a barra lateral ocupar toda a altura da tela */
+    padding: 20px; /* Adiciona preenchimento interno */
+    white-space: nowrap;
 }

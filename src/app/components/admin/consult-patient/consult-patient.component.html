@@ -1,9 +1,12 @@
-<app-admin-sidebar></app-admin-sidebar>
 
 
 <div class="overlay">
     <img src="assets/hoftalon-logo.png" alt="Overlay Image" class="overlay-image">
     <div class="container">
+        <div class="container-sidebar-component">
+            <app-admin-sidebar></app-admin-sidebar>
+        </div>
+
         <div class="campos">
             <label for="consultType">Consultar por:</label>
             <select required id="consultType" name="consultType" [(ngModel)]="selectedTypeConsult">
@@ -41,7 +44,7 @@
 
         <div *ngIf="success == true" class="result">
             <h2>Dados do Paciente</h2>
-            <p><strong>ID:</strong> {{ patientResponseDTO.id }}</p>
+            <p><strong>Código:</strong> {{ patientResponseDTO.id }}</p>
             <p><strong>Nome:</strong> {{ patientResponseDTO.name }}</p>
             <p><strong>Telefone:</strong> {{ patientResponseDTO.phone }}</p>
             <p><strong>CPF:</strong> {{ patientResponseDTO.cpf }}</p>
@@ -52,7 +55,11 @@
                 <h3>Consultas</h3>
                 <ul>
                     <li *ngFor="let appointment of patientResponseDTO.appointments">
-                        {{ appointment.name }} ({{ appointment.timestamp | date:'dd/MM/yyyy' }})
+                        <p><strong>Consulta:</strong>: {{ appointment.name }} ({{ appointment.timestamp | date:'dd/MM/yyyy' }}) <br>
+                        <p><strong>Sobre:</strong>: {{ appointment.description }}  <br>
+                        <p><strong>Doutor:</strong>: {{ appointment.doctorName }}
+                        <p><strong>Setor:</strong>: {{ appointment.sectorName }}
+
                     </li>
                 </ul>
             </div>

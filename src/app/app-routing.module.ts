@@ -14,7 +14,8 @@ const routes: Routes = [
   {path: 'create-doctor-panel', component: CreateDoctorPanelComponent},
   {path: 'create-patient-panel', component: CreatePatientPanelComponent},
   {path: 'consult-patient', component: ConsultPatientComponent},
-
+  { path: '', redirectTo: '/login', pathMatch: 'full' }, // Rota de redirecionamento
+  { path: '**', redirectTo: '/login' }
 ];
 
 @NgModule({

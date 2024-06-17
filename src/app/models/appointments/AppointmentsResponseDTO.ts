@@ -6,7 +6,9 @@ export class AppointmentResponseDTO {
       public name?: string,
       public patientId?: number,
       public doctorId?: number,
+      public doctorName?: string,
       public sectorId?: number,
+      public sectorName?: string,
       public timestamp?: Date,
       public description?: string
     ) {}
