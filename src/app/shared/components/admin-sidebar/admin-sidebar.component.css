@@ -2,3 +2,13 @@
 .nav-link {
     position: relative;
 }
+
+.flex-shrink-0 {
+    flex: 1; /* Allow the sidebar to grow */
+  }
+
+  
+#sidebar {
+    width: 300px;
+    height: 100vh; /* Altura da viewport */
+}

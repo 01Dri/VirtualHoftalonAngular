@@ -1,55 +1,49 @@
-<div class="container-fluid">
-    <div class="row flex-nowrap">
-        <div [ngClass]="{'col-auto': !isCollapsed, 'col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark sidebar-expanded': !isCollapsed, 'col-auto col-md-1 px-sm-1 px-0 bg-dark sidebar-collapsed': isCollapsed}" class="px-sm-2 px-0 bg-dark">
-            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                <a href="/admin-panel" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                    <span class="fs-5 d-none d-sm-inline">Menu</span>
+<div class="container-sidebar">
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark col-auto" id="sidebar"> <!-- Remova estilos inline de largura -->
+        <span class="fs-4 d-flex align-items-center mb-3 me-md-auto text-white text-decoration-none">
+            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+            VTHoftalon
+        </span>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+                <a href="/admin-panel" class="nav-link" aria-current="page" [ngClass]="{'active': currentScreen === 'panel'}" (click)="setCurrentScreen('panel')">
+                    <i class="bi bi-house"></i> <span class="ms-1">Painel</span>
                 </a>
-                <!-- Botão para controlar a expansão da sidebar -->
-                <button class="btn btn-link d-md-none" type="button" (click)="toggleSidebar()">
-                    <i class="bi bi-list fs-4"></i>
-                </button>
-
-                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                    <li class="nav-item">
-                        <a href="/admin-panel" class="nav-link align-middle px-0">
-                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Novo Medico (em breve)</span> </a>
-                        <a href="/create-patient-panel" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Novo Paciente</span> </a>
-
-                        <a href="/consult-patient" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Consultar Paciente</span> </a>
-
-                        <a href="/consult-doctor" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Consultar Doutor (em breve)</span> </a>
-                    </li>
-                </ul>
-                <hr>
-                <div class="dropdown pb-4">
-                    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
-                        <span class="d-none d-sm-inline mx-1">{{user}}</span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                        <li><a class="dropdown-item" href="#">New project...</a></li>
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Sign out</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="col py-3">
-            <router-outlet></router-outlet>
+            </li>
+            <li class="nav-item">
+                <a href="/create-patient-panel" class="nav-link" [ngClass]="{'active': currentScreen === 'create-patient'}" (click)="setCurrentScreen('create-patient')">
+                    <i class="bi bi-person-plus-fill"></i> <span class="ms-1">Novo Paciente</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/consult-patient" class="nav-link" [ngClass]="{'active': currentScreen === 'consult-patient'}" (click)="setCurrentScreen('consult-patient')">
+                    <i class="bi bi-search"></i> <span class="ms-1">Consultar Paciente</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link" [ngClass]="{'active': currentScreen === 'consult-doctor'}" (click)="setCurrentScreen('consult-doctor')">
+                    <i class="bi bi-person"></i> <span class="ms-1">Consultar Doutor (em breve)</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link" [ngClass]="{'active': currentScreen === 'create-doctor'}" (click)="setCurrentScreen('create-doctor')">
+                    <i class="bi bi-gear"></i> <span class="ms-1">Novo Doutor (em breve)</span>
+                </a>
+            </li>
+        </ul>
+        <hr>
+        <div class="dropdown">
+            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="..." alt="" width="32" height="32" class="rounded-circle me-2">
+                <strong>{{user}}</strong>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                <li><a href="#" class="dropdown-item">Perfil</a></li>
+                <li><a href="#" class="dropdown-item">Configurações</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a href="#" class="dropdown-item">Sair</a></li>
+            </ul>
         </div>
     </div>
 </div>

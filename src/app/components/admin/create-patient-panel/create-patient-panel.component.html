@@ -1,79 +1,80 @@
 
-<div class="overlay">
-    <img src="assets/hoftalon-logo.png" alt="Overlay Image" class="overlay-image">
-    <div class="container">
-        <div class="container-sidebar-component">
-            <app-admin-sidebar></app-admin-sidebar>
+<div class="container-sidebar-component" style="
+            width: 100px;
+            height: 100px;
+            margin-top: 0x;">
+    <app-admin-sidebar></app-admin-sidebar>
+</div>
+
+<img src="assets/hoftalon-logo.png" alt="Overlay Image" class="overlay-image">
+<div class="container">
+    <form #registrationForm="ngForm">
+        <div class="campos">
+            <label for="name">Nome</label>
+            <input type="text" required id="nameInput" name="name" [(ngModel)]="patientRequestDto.name" #name="ngModel">
+            <div *ngIf="name.invalid && (name.dirty || name.touched)" class="text-danger">
+                Nome é obrigatório.
+            </div>
         </div>
-        
-        <form #registrationForm="ngForm">
-            <div class="campos">
-                <label for="name">Nome</label>
-                <input type="text" required id="nameInput" name="name" [(ngModel)]="patientRequestDto.name" #name="ngModel">
-                <div *ngIf="name.invalid && (name.dirty || name.touched)" class="text-danger">
-                    Nome é obrigatório.
-                </div>
-            </div>
 
-            <div class="campos">
-                <label for="phone">Celular</label>
-                <input type="text" required id="phoneInput" name="phone" [(ngModel)]="patientRequestDto.phone" #phone="ngModel">
-                <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="text-danger">
-                    Celular é obrigatório.
-                </div>
+        <div class="campos">
+            <label for="phone">Celular</label>
+            <input type="text" required id="phoneInput" name="phone" [(ngModel)]="patientRequestDto.phone" #phone="ngModel">
+            <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="text-danger">
+                Celular é obrigatório.
             </div>
+        </div>
 
-            <div class="campos">
-                <label for="cpf">CPF</label>
-                <input type="text" required id="cpfInput" name="cpf" [(ngModel)]="patientRequestDto.cpf" #cpf="ngModel" (input)="formatarCPF($event)">
-                <div *ngIf="cpf.invalid && (cpf.dirty || cpf.touched)" class="text-danger">
-                    CPF é obrigatório.
-                </div>
+        <div class="campos">
+            <label for="cpf">CPF</label>
+            <input type="text" required id="cpfInput" name="cpf" [(ngModel)]="patientRequestDto.cpf" #cpf="ngModel" (input)="formatarCPF($event)">
+            <div *ngIf="cpf.invalid && (cpf.dirty || cpf.touched)" class="text-danger">
+                CPF é obrigatório.
             </div>
+        </div>
 
-            <div class="campos">
-                <label for="rg">RG</label>
-                <input type="text" required id="rgInput" name="rg" [(ngModel)]="patientRequestDto.rg" #rg="ngModel">
-                <div *ngIf="rg.invalid && (rg.dirty || rg.touched)" class="text-danger">
-                    RG é obrigatório.
-                </div>
+        <div class="campos">
+            <label for="rg">RG</label>
+            <input type="text" required id="rgInput" name="rg" [(ngModel)]="patientRequestDto.rg" #rg="ngModel">
+            <div *ngIf="rg.invalid && (rg.dirty || rg.touched)" class="text-danger">
+                RG é obrigatório.
             </div>
+        </div>
 
-            <div class="campos">
-                <label for="email">E-mail</label>
-                <input type="email" required id="emailInput" name="email" [(ngModel)]="patientRequestDto.email" #email="ngModel">
-                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
-                    E-mail é obrigatório e deve ser válido.
-                </div>
+        <div class="campos">
+            <label for="email">E-mail</label>
+            <input type="email" required id="emailInput" name="email" [(ngModel)]="patientRequestDto.email" #email="ngModel">
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+                E-mail é obrigatório e deve ser válido.
             </div>
+        </div>
 
-            <div class="campos">
-                <label for="birthdate">Data de Nascimento</label>
-                <input type="date" required id="birthdateInput" name="birthdate" [(ngModel)]="patientRequestDto.birthdate" #birthdate="ngModel">
-                <div *ngIf="birthdate.invalid && (birthdate.dirty || birthdate.touched)" class="text-danger">
-                    Data de Nascimento é obrigatória.
-                </div>
+        <div class="campos">
+            <label for="birthdate">Data de Nascimento</label>
+            <input type="date" required id="birthdateInput" name="birthdate" [(ngModel)]="patientRequestDto.birthdate" #birthdate="ngModel">
+            <div *ngIf="birthdate.invalid && (birthdate.dirty || birthdate.touched)" class="text-danger">
+                Data de Nascimento é obrigatória.
             </div>
+        </div>
 
-            <div class="campos">
-                <label for="classification">Classificação</label>
-                <select required id="classificationInput" name="classification" [(ngModel)]="patientRequestDto.classification" #classification="ngModel">
-                    <option value="" disabled selected>Selecione a classificação</option>
-                    <option value="Aged">Idoso</option>
-                    <option value="Pregnant">Grávida</option>
-                    <option value="Deficient">Deficiente</option>
-                    <option value="Patient">Paciente</option>
-                </select>
-                <div *ngIf="classification.invalid && (classification.dirty || classification.touched)" class="text-danger">
-                    Classificação é obrigatória.
-                </div>
+        <div class="campos">
+            <label for="classification">Classificação</label>
+            <select required id="classificationInput" name="classification" [(ngModel)]="patientRequestDto.classification" #classification="ngModel">
+                <option value="" disabled selected>Selecione a classificação</option>
+                <option value="Aged">Idoso</option>
+                <option value="Pregnant">Grávida</option>
+                <option value="Deficient">Deficiente</option>
+                <option value="Patient">Paciente</option>
+            </select>
+            <div *ngIf="classification.invalid && (classification.dirty || classification.touched)" class="text-danger">
+                Classificação é obrigatória.
             </div>
+        </div>
 
-            <div class="campos">
-                <button id="btnSubmit" type="submit" [disabled]="registrationForm.invalid" (click)="criar()">Criar</button>
-                <div *ngIf="errorMessage" class="text-danger">{{errorMessage}}</div>
-                <div *ngIf="sucessMessage" class="text-success" style="color: green;"> {{sucessMessage}}</div>
-            </div>
-        </form>
-    </div>
+        <div class="campos">
+            <button id="btnSubmit" type="submit" [disabled]="registrationForm.invalid" (click)="criar()">Criar</button>
+            <div *ngIf="errorMessage" class="text-danger">{{errorMessage}}</div>
+            <div *ngIf="sucessMessage" class="text-success" style="color: green;"> {{sucessMessage}}</div>
+        </div>
+    </form>
 </div>

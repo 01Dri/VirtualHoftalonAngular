@@ -116,12 +116,3 @@
 }
 
 
-.container-sidebar-component {
-    position: fixed; /* Fixa o contêiner em relação à janela de visualização */
-    left: 0; /* Alinha o contêiner ao lado esquerdo */
-    top: 0; /* Alinha o contêiner ao topo da janela */
-    width: 10%; /* Define a largura da barra lateral */
-    height: 100vh; /* Faz a barra lateral ocupar toda a altura da tela */
-    padding: 20px; /* Adiciona preenchimento interno */
-    white-space: nowrap;
-}

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AdministratorReponseDTO } from '../../../models/administrator/AdministratorResponseDTO';
 import { StorageService } from '../../../services/storage.service';
 import { RequestsService } from '../../../services/requests.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-sidebar',
@@ -11,12 +11,11 @@ import { Router } from '@angular/router';
 })
 export class AdminSidebarComponent {
   isCollapsed: boolean = false;
+  currentScreen: string  = this.storageService.cookieStorageGet("currentScreen");
 
-  
   user = ""
-  constructor(private storageService: StorageService, private router: Router, private requestServices: RequestsService) {}
+  constructor(private storageService: StorageService, private router: Router, private requestServices: RequestsService, private route: ActivatedRoute) {}
   ngOnInit() {
-
     var role = this.storageService.cookieStorageGet("role");
     if (role!= null) {
       if (role != "ADMIN") {
@@ -33,4 +32,9 @@ export class AdminSidebarComponent {
   toggleSidebar() {
     this.isCollapsed = !this.isCollapsed;
   }
+
+  setCurrentScreen(screen: string) {
+    this.storageService.cookieStorageSet("currentScreen", screen);
+  }
+  
 }

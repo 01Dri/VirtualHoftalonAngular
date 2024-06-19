@@ -36,24 +36,13 @@ export class ConsultPatientComponent {
           this.patientResponseDTO = response;
           this.success = true;
           this.errorMessage = ""
+
         }, (error: any) => {
           this.success = false;
           console.log("Deu erro aqui")
-          this.errorMessage = error;
+          this.errorMessage = error.error.error;
         });
       }
-  }
-
-  getDoctorById(id: number) {
-    this.requestsServices.getData<any>(`doctors/${id}`)
-    .subscribe((response: any) => {
-      console.log(response)
-      this.patientResponseDTO.doctorName = response.name
-    }, (error: any) => {
-      console.log(error)
-    })
-    return null
-
   }
 
   checkEdnpointToRequest() : string {
